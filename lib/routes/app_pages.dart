@@ -2,8 +2,6 @@ import 'package:damasauction/core/middleware/mymiddleware.dart';
 import 'package:damasauction/views/auth/loginpage.dart';
 import 'package:damasauction/views/home/home.dart';
 import 'package:damasauction/views/homescreen/homescreen.dart';
-import 'package:damasauction/views/items/create_item_form.dart';
-
 import 'package:damasauction/views/languages/language_selection_screen.dart';
 import 'package:damasauction/views/more/more.dart';
 import 'package:damasauction/views/splash/spalsh_screen.dart';
@@ -26,7 +24,6 @@ class AppPages {
         page: () => const SplashScreen()), // Define splash page route
     GetPage(name: '/homescreen', page: () => const HomeScreen()),
     GetPage(name: '/more', page: () => MorePage()),
-    GetPage(name: '/createitemform', page: () => const CreateItemForm()),
     // GetPage(name: '/profile', page: () => ProfilePage()),
     // GetPage(name: '/editprofile', page: () => EditInfoPage()),
     // GetPage(name: '/bidding', page: () => BiddingPage()),
