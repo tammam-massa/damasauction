@@ -9,10 +9,10 @@ class BiddingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5), // Set the page background color
+      backgroundColor: const Color(0xFFf3f3f3), // Set the page background color
       appBar: AppBar(
         scrolledUnderElevation: 0.0,
-        backgroundColor: const Color(0xFFF5F5F5),
+        backgroundColor: const Color(0xFFf3f3f3),
         title: const Text('Bidding'),
         centerTitle: true,
         leading: Builder(
@@ -117,7 +117,7 @@ class BiddingPage extends StatelessWidget {
         children: [
           Container(
             color: const Color(
-                0xFFF5F5F5), // Ensure the background color of the container
+                0xFFf3f3f3), // Ensure the background color of the container
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Card(

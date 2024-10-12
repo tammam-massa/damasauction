@@ -70,7 +70,7 @@ class LanguageSelectionFormState extends State<LanguageSelectionForm> {
           ? TextDirection.rtl
           : TextDirection.ltr, // Set RTL for Arabic
       child: Container(
-        color: const Color(0xFFF5F5F5), // Set background color here
+        color: const Color(0xFFf3f3f3), // Set background color here
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
           child: Column(

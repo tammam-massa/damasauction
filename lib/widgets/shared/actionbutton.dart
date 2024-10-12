@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class ActionButton extends StatelessWidget {
   final String text;
   final Color backgroundColor;
-  final IconData iconData;
+  final IconData? iconData;
   final void Function()? onPressed;
 
   const ActionButton({
     super.key,
     required this.text,
-    required this.iconData,
+    this.iconData,
     required this.onPressed,
     required this.backgroundColor,
   });
@@ -28,13 +28,16 @@ class ActionButton extends StatelessWidget {
           ),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment:
+              MainAxisAlignment.center, // Center align the children
           children: [
-            Icon(
-              iconData,
-              color: Colors.white, // Icon color
-            ),
-            const SizedBox(width: 10), // Space between icon and text
+            if (iconData != null) ...[
+              Icon(
+                iconData,
+                color: Colors.white, // Icon color
+              ),
+              const SizedBox(width: 10), // Space between icon and text
+            ],
             Text(
               text,
               style: const TextStyle(

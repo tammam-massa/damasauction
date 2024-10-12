@@ -8,9 +8,9 @@ class BiddingCreditPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5), // Background color for the page
+      backgroundColor: const Color(0xFFf3f3f3), // Background color for the page
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF5F5F5),
+        backgroundColor: const Color(0xFFf3f3f3),
         title: const Text("Bidding Credit"),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),

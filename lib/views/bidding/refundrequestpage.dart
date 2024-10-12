@@ -6,9 +6,9 @@ class RefundRequestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5), // Page background color
+      backgroundColor: const Color(0xFFf3f3f3), // Page background color
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF5F5F5),
+        backgroundColor: const Color(0xFFf3f3f3),
         title: const Text("Refund requests"),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),

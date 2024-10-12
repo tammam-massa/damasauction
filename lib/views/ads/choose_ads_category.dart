@@ -1,5 +1,4 @@
-import 'package:damasauction/views/ads/choose_ad_info.dart';
-
+import 'package:damasauction/views/ads/choose_ads_info.dart';
 import 'package:damasauction/widgets/ads/categoryadname.dart';
 import 'package:damasauction/widgets/shared/actionbutton.dart';
 import 'package:damasauction/widgets/shared/searchbartop.dart';
@@ -15,17 +14,42 @@ class ChooseAdCategoryPage extends StatefulWidget {
   ChooseAdCategoryPageState createState() => ChooseAdCategoryPageState();
 }
 
-class ChooseAdCategoryPageState extends State<ChooseAdCategoryPage> {
-  String? _selectedCategory; // To track the selected category
+class ChooseAdCategoryPageState extends State<ChooseAdCategoryPage>
+    with SingleTickerProviderStateMixin {
+  String? _selectedCategoryName; // Track the selected category name
+  int? _selectedCategoryId; // Track the selected category ID
   List<dynamic> categories = [];
+  AnimationController? _animationController;
+  Animation<double>? _animation;
 
   @override
   void initState() {
     super.initState();
     fetchCategories(); // Fetch categories when the widget is initialized
+
+    // Initialize animation controller
+    _animationController = AnimationController(
+      duration: const Duration(seconds: 1), // Animation duration
+      vsync: this,
+    );
+
+    // Initialize the animation for the progress bar
+    _animation = Tween<double>(begin: 0.0, end: 0.33).animate(
+      CurvedAnimation(parent: _animationController!, curve: Curves.easeInOut),
+    );
+
+    // Start the animation
+    _animationController!.forward();
   }
 
-// Fetching categories from the API
+  // Dispose the controller to free up resources
+  @override
+  void dispose() {
+    _animationController?.dispose();
+    super.dispose();
+  }
+
+  // Fetching categories from the API
   Future<void> fetchCategories() async {
     try {
       final response = await http
@@ -68,8 +92,7 @@ class ChooseAdCategoryPageState extends State<ChooseAdCategoryPage> {
                         icon: const Icon(Icons.chevron_left_outlined,
                             color: Colors.black),
                         onPressed: () {
-                          // Handle back action
-                          Get.back();
+                          Get.back(); // Handle back action
                         },
                       ),
                       Text(
@@ -82,13 +105,18 @@ class ChooseAdCategoryPageState extends State<ChooseAdCategoryPage> {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  // Progress bar
-                  LinearProgressIndicator(
-                    minHeight: 10,
-                    value: 0.33, // Adjust according to the step
-                    backgroundColor: Colors.grey[200],
-                    valueColor:
-                        const AlwaysStoppedAnimation<Color>(Color(0xff358cde)),
+                  // Animated Progress bar
+                  AnimatedBuilder(
+                    animation: _animationController!,
+                    builder: (context, child) {
+                      return LinearProgressIndicator(
+                        minHeight: 10,
+                        value: _animation?.value, // Use animation for value
+                        backgroundColor: Colors.grey[200],
+                        valueColor: const AlwaysStoppedAnimation<Color>(
+                            Color(0xff358cde)), // Blue color for progress
+                      );
+                    },
                   ),
                   const SizedBox(height: 10),
                   // "Step 1" text under the progress bar
@@ -119,36 +147,53 @@ class ChooseAdCategoryPageState extends State<ChooseAdCategoryPage> {
                                 CircularProgressIndicator()) // Loading indicator
                         : ListView(
                             children: categories.map((category) {
-                              // Assuming 'name' holds the category name
                               String categoryName = category['name'];
+                              int? categoryId =
+                                  category['id']; // Category ID can be null
 
-                              return CategoryAdName(
-                                category:
-                                    categoryName, // Pass the name explicitly as String
-                                selectedCategory: _selectedCategory,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _selectedCategory =
-                                        value; // Update the selected category
-                                  });
-                                },
-                              );
+                              // Handle categoryId null safety
+                              if (categoryId != null) {
+                                return CategoryAdName(
+                                  categoryName: categoryName,
+                                  categoryId: categoryId,
+                                  selectedCategoryId: _selectedCategoryId,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedCategoryId =
+                                          value; // Update category ID
+                                      _selectedCategoryName =
+                                          categoryName; // Update category name
+                                    });
+                                  },
+                                );
+                              } else {
+                                return Container(); // Handle null categoryId (skip this category)
+                              }
                             }).toList(),
                           ),
                   ),
-
                   const SizedBox(height: 20),
                   // Next Button
                   SizedBox(
-                      width: double.infinity,
-                      child: ActionButton(
-                        text: 'next'.tr,
-                        iconData: Icons.next_plan,
-                        onPressed: () {
-                          Get.to(ChooseAdInfoPage());
-                        },
-                        backgroundColor: const Color(0xff358cde),
-                      )),
+                    width: double.infinity,
+                    child: ActionButton(
+                      text: 'next'.tr,
+                      iconData: Icons.next_plan,
+                      onPressed: () {
+                        if (_selectedCategoryId != null) {
+                          // Navigate to the next page with selected category
+                          Get.to(ChooseAdInfoPage(), arguments: {
+                            'categoryId': _selectedCategoryId,
+                            'categoryName': _selectedCategoryName,
+                          });
+                        } else {
+                          // Show an error if no category is selected
+                          Get.snackbar('Error', 'Please select a category');
+                        }
+                      },
+                      backgroundColor: const Color(0xff358cde),
+                    ),
+                  ),
                 ],
               ),
             ),

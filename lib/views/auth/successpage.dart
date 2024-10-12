@@ -8,10 +8,10 @@ class SuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5), // Same background as SignUpPage
+      backgroundColor: const Color(0xFFf3f3f3), // Same background as SignUpPage
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xFFF5F5F5), // Match SignUpPage AppBar
+        backgroundColor: const Color(0xFFf3f3f3), // Match SignUpPage AppBar
         elevation: 0,
         title: Center(
           child: Text(

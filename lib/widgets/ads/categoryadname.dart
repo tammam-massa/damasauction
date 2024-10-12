@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 
 class CategoryAdName extends StatelessWidget {
-  final String category;
-  final String? selectedCategory;
-  final ValueChanged<String?> onChanged;
+  final String categoryName;
+  final int categoryId;
+  final int? selectedCategoryId;
+  final ValueChanged<int?> onChanged;
 
   const CategoryAdName({
     super.key,
-    required this.category,
-    required this.selectedCategory,
+    required this.categoryName,
+    required this.categoryId,
+    required this.selectedCategoryId,
     required this.onChanged,
   });
 
   @override
   Widget build(BuildContext context) {
-    return RadioListTile<String>(
-      value: category,
-      groupValue: selectedCategory,
-      onChanged: onChanged,
+    return RadioListTile<int>(
+      value: categoryId, // Set the value to categoryId
+      groupValue: selectedCategoryId, // Selected categoryId
+      onChanged: onChanged, // Pass the selected categoryId back
       title: Text(
-        category,
+        categoryName, // Display the categoryName
         style: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16,

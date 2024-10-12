@@ -1,7 +1,7 @@
 //previous is ok
 
 import 'package:damasauction/controllers/category/category_controller.dart';
-import 'package:damasauction/services/category_function.dart';
+import 'package:damasauction/services/get_category_name_by_id.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,10 +19,10 @@ class CategoryPage extends StatelessWidget {
     categoryController.fetchCategoryDetails(categoryId);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: const Color(0xFFf3f3f3),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xFFF5F5F5),
+        backgroundColor: const Color(0xFFf3f3f3),
         title: Row(
           children: [
             // IconButton for back navigation

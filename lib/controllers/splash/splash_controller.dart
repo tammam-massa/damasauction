@@ -8,8 +8,7 @@ class SplashController extends GetxController {
     super.onInit();
     // Middleware logic to determine the next route
     MyMiddleWare middleware = MyMiddleWare();
-    final nextRoute = middleware.redirect(null)?.name ??
-        AppRoutes.languageSelectionScreenStarter;
+    final nextRoute = middleware.redirect(null)?.name ?? AppRoutes.homeScreen;
 
     // Navigate to the determined route after a delay
     Future.delayed(const Duration(seconds: 4), () {

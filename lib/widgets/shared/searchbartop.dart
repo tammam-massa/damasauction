@@ -1,16 +1,18 @@
-// Full-width search bar
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class SearchBarTop extends StatelessWidget {
-  const SearchBarTop({super.key});
+  final String hint; // Declare hint as a final field
+
+  const SearchBarTop(
+      {super.key, required this.hint}); // Make hint required in the constructor
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(
+          horizontal: 16.0), // Padding for the container
       child: Container(
+        width: double.infinity, // Set width to take the full width
         decoration: BoxDecoration(
           color: Colors.white, // Background color
           borderRadius: BorderRadius.circular(10.0),
@@ -25,10 +27,11 @@ class SearchBarTop extends StatelessWidget {
         ),
         child: TextField(
           decoration: InputDecoration(
-            hintText: 'search all ads'.tr,
+            hintText: hint, // Use the hint passed from constructor
             prefixIcon: const Icon(Icons.search, color: Colors.grey),
             border: InputBorder.none, // Remove the default border
-            contentPadding: const EdgeInsets.symmetric(vertical: 15.0),
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 15.0), // Vertical padding
             hintStyle: TextStyle(
                 color: Colors.grey.shade400), // Adjust hint text color
           ),

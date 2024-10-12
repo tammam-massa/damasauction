@@ -76,25 +76,6 @@ class ChooseAdInfoPage extends StatelessWidget {
                               shrinkWrap:
                                   true, // To avoid errors related to unbounded height
                               children: [
-                                // Dropdown for categories
-                                DropdownButtonFormField<String>(
-                                  value: controller
-                                          .selectedCategory.value.isNotEmpty
-                                      ? controller.selectedCategory.value
-                                      : null,
-                                  decoration: const InputDecoration(
-                                      labelText: 'Select Category'),
-                                  items: controller.categories.map((category) {
-                                    return DropdownMenuItem<String>(
-                                      value: category['id'].toString(),
-                                      child: Text(category['name']),
-                                    );
-                                  }).toList(),
-                                  onChanged: (value) {
-                                    controller.selectedCategory.value = value!;
-                                  },
-                                ),
-
                                 // Dropdown for city selection
                                 DropdownButtonFormField<String>(
                                   value:

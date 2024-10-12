@@ -282,7 +282,9 @@ class HomePageState extends State<HomePage> {
           children: [
             const SizedBox(height: 20),
             // Full-width search bar
-            const SearchBarTop(),
+            SearchBarTop(
+              hint: 'search all ads'.tr,
+            ),
             const SizedBox(height: 20),
             // Slider
             TPromeSlider(

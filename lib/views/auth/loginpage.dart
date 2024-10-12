@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5), // Background color
+      backgroundColor: const Color(0xFFf3f3f3), // Background color
       appBar: AppBar(
         scrolledUnderElevation: 0.0,
         backgroundColor: Colors.white, // AppBar background color
@@ -122,7 +122,7 @@ class LoginPage extends StatelessWidget {
 
                         // Validate phone number format
                         RegExp myRegex = RegExp(
-                          r'^\(\+96393|\+963998|\+963982|\+963996|\+963987|\+963997|\+96399|\+963995|\+96394|\+96395|\+96396|\+963955\)',
+                          r'^\+963(93|998|982|996|987|997|99|995|94|95|96|955)\d{7}$',
                         );
 
                         if (value.length != 13 || !myRegex.hasMatch(value)) {

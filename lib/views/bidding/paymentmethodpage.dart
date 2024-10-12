@@ -15,10 +15,10 @@ class PaymentMethodPageState extends State<PaymentMethodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5), // Page background color
+      backgroundColor: const Color(0xFFf3f3f3), // Page background color
       appBar: AppBar(
         title: const Text('Payment Method'),
-        backgroundColor: const Color(0xFFF5F5F5),
+        backgroundColor: const Color(0xFFf3f3f3),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),

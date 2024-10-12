@@ -10,7 +10,7 @@ class LanguageSelectionScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color(0xFFF5F5F5),
+          backgroundColor: const Color(0xFFf3f3f3),
           elevation: 0,
           centerTitle: true,
           title: Text(
