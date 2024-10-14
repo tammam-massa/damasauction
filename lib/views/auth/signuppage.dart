@@ -271,7 +271,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           // Replace ElevatedButton.icon with ActionButton
 
                           ActionButton(
-                        iconData: Icons.person_add,
+                        //  iconData: Icons.person_add,
                         text: "create_account".tr, // Button text
                         backgroundColor:
                             const Color(0xff358cde), // Button color

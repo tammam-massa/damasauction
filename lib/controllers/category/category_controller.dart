@@ -4,6 +4,14 @@ import 'package:damasauction/services/api_response.dart';
 import 'package:get/get.dart';
 
 class CategoryController extends GetxController {
+  var selectedCategoryName = ''.obs; // Observable variable
+  var selectedCategoryId = 0.obs; // Observable variable
+
+  void updateCategory(int categoryId, String categoryName) {
+    selectedCategoryId.value = categoryId;
+    selectedCategoryName.value = categoryName;
+  }
+
   var isLoading = true.obs;
   var categoryModel =
       CategoryModel(attributes: [], categoryId: 0, name: '', description: '')

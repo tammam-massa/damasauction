@@ -3,6 +3,7 @@ import 'package:damasauction/models/auth/user_model.dart';
 import 'package:damasauction/services/api_service.dart';
 import 'package:damasauction/services/services.dart';
 import 'package:damasauction/views/auth/successpage.dart';
+import 'package:damasauction/pages/verifycode/verifycode_signup.dart';
 import 'package:damasauction/views/homescreen/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -92,7 +93,7 @@ class AuthController extends GetxController {
         duration: const Duration(seconds: 3), // Duration to show the snackbar
       );
 
-      Get.to(() => const SuccessPage());
+      Get.to(() => VerificationSignUpCodePage());
     } catch (e) {
       // Set status to failure on error and update the UI
       statusRequest = StatusRequest.failure;

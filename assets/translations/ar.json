@@ -135,20 +135,23 @@
     "enter_item_name": "أدخل اسم العنصر",
     "starting_price": "السعر المبدئي",
     "enter_starting_price": "أدخل السعر المبدئي",
-    "Minimum Price Increment": "الزيادة الدنيا للسعر",
-    "Enter minimum price increment": "أدخل الزيادة الدنيا للسعر",
+    "minimum_Price_increment": "الزيادة الدنيا للسعر",
+    "enter_minimum_price_increment": "أدخل الزيادة الدنيا للسعر",
     "item_description": "وصف العنصر",
     "enter_item_description": "أدخل وصف العنصر",
     "keywords": "الكلمات المفتاحية",
-    "enter_keywords_for_the_item": "أدخل الكلمات المفتاحية للعنصر",
+    "enter_keywords": "أدخل الكلمات المفتاحية للعنصر",
     "bidding_start_time": "وقت بدء المزايدة",
-    "enter_bidding_start_time_(YYYY-MM-DD HH:MM)": "أدخل وقت بدء المزايدة (YYYY-MM-DD HH:MM)",
-     "minimum_Price_increment": "الزيادة الأدنى في السعر",
-  "enter_minimum_price_increment": "أدخل الزيادة الأدنى في السعر",
-  "choose":"اختر",
+    "enter_bidding_start_time": "أدخل وقت بدء المزايدة",
+    "minimum_price_increment": "الزيادة الأدنى في السعر",
+
   "finish":"انهاء",
   "choose_images":"يرجى تحميل الصور ",
-  "create_ad":"إنشاءإعلان"
+  "create_ad":"إنشاءإعلان",
+  "enter_description":"أدخل الوصف",
+  "min_increase_price":"الحد الأدنى لزيادة السعر",
+  "no_images_selected":"لم يتم اختيار أي صورة",
+  "enter_min_increase_price":"أدخل الحد الأدنى لزيادة السعر"
   }
   
 

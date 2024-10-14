@@ -146,7 +146,11 @@
   "choose":"Choose",
   "finish":"Finish",
   "choose_images": "Choose Images",
-  "create_ad":"Create Advertise"
+  "create_ad":"Create Advertise",
+  "enter_description":"Enter Description",
+  "min_increase_price":"Min Increase Price",
+  "no_images_selected":"No Images Selected",
+  "enter_min_increase_price":"Enter Min Increase Price"
 }
   
 

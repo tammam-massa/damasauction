@@ -21,7 +21,7 @@ class LandingPage extends StatelessWidget {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                      'assets/imges/background.png'), // Placeholder for the pink background
+                      'assets/images/background.png'), // Placeholder for the pink background
                   fit: BoxFit.cover,
                 ),
               ),
@@ -38,7 +38,7 @@ class LandingPage extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                      'assets/imges/d11.png'), // Placeholder for the pink background
+                      'assets/images/d11.png'), // Placeholder for the pink background
                   fit: BoxFit.cover,
                 ),
               ),
@@ -53,7 +53,7 @@ class LandingPage extends StatelessWidget {
             right: 0,
             child: Column(
               children: [
-                Image.asset('assets/imges/logo.png',
+                Image.asset('assets/images/logo.png',
                     height: 120), // Placeholder for the logo
                 SizedBox(height: 40), // Space between logo and buttons
               ],

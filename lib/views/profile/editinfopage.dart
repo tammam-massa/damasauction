@@ -272,7 +272,7 @@ class EditInfoPageState extends State<EditInfoPage> {
                 Center(
                     child: ActionButton(
                         text: 'update'.tr,
-                        iconData: Icons.update,
+                        //iconData: Icons.update,
                         onPressed: _saveProfile,
                         backgroundColor: const Color(0xff358cde))),
               ],

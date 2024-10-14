@@ -2,8 +2,10 @@ import 'package:damasauction/bindings/landing_bindings.dart';
 import 'package:damasauction/bindings/signup_binding.dart';
 import 'package:damasauction/core/middleware/mymiddleware.dart';
 import 'package:damasauction/pages/landing/landing_page.dart';
+import 'package:damasauction/pages/login/login_page.dart';
 import 'package:damasauction/pages/signup/signup_page.dart';
-import 'package:damasauction/views/auth/loginpage.dart';
+import 'package:damasauction/pages/verifycode/success_Signup.dart';
+import 'package:damasauction/pages/verifycode/verifycode_signup.dart';
 import 'package:damasauction/views/home/home.dart';
 import 'package:damasauction/views/homescreen/homescreen.dart';
 
@@ -15,20 +17,6 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 class AppPages {
   static final pages = [
     GetPage(
-      name: "/",
-      page: () => const HomeScreen(),
-    ),
-
-    //  GetPage(
-    //     name: "/",
-    //     page: () => const LanguageSelectionScreenStarter(),
-    //     middlewares: [MyMiddleWare()]),
-    // GetPage(
-    //     name: "/",
-    //     page: () => const LanguageSelectionScreenStarter(),
-    //     middlewares: [MyMiddleWare()]),
-    //  GetPage(name: '/login' ,page: ()=> LoginPage() , binding: LoginPageBinding() ),
-    GetPage(
         name: '/register',
         page: () => RegisterPage(),
         binding: RegisterPageBinging()),
@@ -38,8 +26,13 @@ class AppPages {
         page: () => LandingPage(),
         binding: LandingPageBinging()),
     GetPage(
+        name: "/",
+        page: () => const LanguageSelectionScreenStarter(),
+        middlewares: [MyMiddleWare()]),
+    GetPage(
         name: '/languageselectionscreenstarter',
         page: () => const LanguageSelectionScreenStarter()),
+    //GetPage(name: '/login', page: () => LoginPage()), // Define login page route
     GetPage(name: '/login', page: () => LoginPage()), // Define login page route
     GetPage(
         name: '/home', page: () => const HomePage()), // Define home page route
@@ -48,7 +41,11 @@ class AppPages {
         page: () => const SplashScreen()), // Define splash page route
     GetPage(name: '/homescreen', page: () => const HomeScreen()),
     GetPage(name: '/more', page: () => MorePage()),
+    GetPage(name: '/usersuccescpage', page: () => const SuccessSignuupPage()),
 
+    GetPage(
+        name: '/verificationsignupcodepage',
+        page: () => VerificationSignUpCodePage()),
     // GetPage(name: '/profile', page: () => ProfilePage()),
     // GetPage(name: '/editprofile', page: () => EditInfoPage()),
     // GetPage(name: '/bidding', page: () => BiddingPage()),

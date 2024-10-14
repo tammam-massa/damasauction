@@ -14,6 +14,9 @@ class CustomAdTextField extends StatelessWidget {
     required this.label,
     required this.hint,
     this.keyboardType,
+    int? maxLines,
+    bool? readOnly,
+    Future<void> Function()? onTap,
   });
 
   @override

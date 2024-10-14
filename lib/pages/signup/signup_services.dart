@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:damasauction/Utiles.dart';
 import 'package:http/http.dart' as http;
 
 class RegisterService {
@@ -31,13 +32,13 @@ class RegisterService {
     if (response.statusCode == 200) {
       var replay = jsonDecode(response.body);
       msg = replay['message'];
-      //showToast(text:msg ,state: ToastStates.SUCCESS);
+      showToast(text: msg, state: ToastStates.SUCCESS);
 
       return true;
     } else {
       var replay = jsonDecode(response.body);
       msg = replay['message'];
-      // showToast(text:msg ,state: ToastStates.EROOR);
+      showToast(text: msg, state: ToastStates.EROOR);
       return false;
     }
   }

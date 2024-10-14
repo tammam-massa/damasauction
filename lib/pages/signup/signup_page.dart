@@ -1,4 +1,5 @@
 import 'package:damasauction/pages/signup/signup_controller.dart';
+import 'package:damasauction/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -225,12 +226,25 @@ class RegisterPage extends StatelessWidget {
     );
   }
 
+  // void onClickSignup() async {
+  //   await controller.RegisterOnClick();
+  //   if (controller.registerStatus) {
+  //     Get.toNamed(AppRoutes.verificationSignUpCodePage, arguments: {
+  //       "username": emailController.text.isNotEmpty
+  //           ? emailController.text // Use email if provided
+  //           : mobilenomController.text // Fallback to mobile number
+  //     });
+  //   } else {
+  //     print('error');
+  //   }
+  // }
+
   void onClickSignup() async {
     await controller.RegisterOnClick();
-    if (controller.registerStatus) {
-      // Get.offNamed('/home');
-    } else {
-      print('error');
-    }
+    //   if (controller.registerStatus) {
+    //     // Get.offNamed('/home');
+    //   } else {
+    //     print('error');
+    //   }
   }
 }

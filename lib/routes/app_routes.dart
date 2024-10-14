@@ -6,4 +6,6 @@ class AppRoutes {
   static const languageSelectionScreenStarter =
       '/languageselectionscreenstarter';
   static const createItemForm = '/createitemform';
+  static const successSignupPage = '/successSignuppage';
+  static const verificationSignUpCodePage = '/verificationsignupcodepage';
 }

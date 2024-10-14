@@ -187,7 +187,7 @@ class LoginPage extends StatelessWidget {
                         }
                       },
                       backgroundColor: const Color(0xff358cde),
-                      iconData: Icons.login,
+                      // iconData: Icons.login,
                       text: 'login'.tr,
                     ),
                     const SizedBox(height: 10),
