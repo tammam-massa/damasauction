@@ -70,6 +70,7 @@ class LandingPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // Add login functionality
+                    Get.toNamed('/login');
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 15),

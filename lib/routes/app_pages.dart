@@ -1,11 +1,12 @@
 import 'package:damasauction/bindings/landing_bindings.dart';
 import 'package:damasauction/bindings/signup_binding.dart';
-import 'package:damasauction/core/middleware/mymiddleware.dart';
+import 'package:damasauction/pages/forgetpassword/verifycode_resetpassword.dart';
 import 'package:damasauction/pages/landing/landing_page.dart';
 import 'package:damasauction/pages/login/login_page.dart';
+import 'package:damasauction/pages/resetpassword/resetpassword.dart';
 import 'package:damasauction/pages/signup/signup_page.dart';
-import 'package:damasauction/pages/verifycode/success_Signup.dart';
-import 'package:damasauction/pages/verifycode/verifycode_signup.dart';
+import 'package:damasauction/pages/verifycode_signup/success_Signup.dart';
+import 'package:damasauction/pages/verifycode_signup/verifycode_signup.dart';
 import 'package:damasauction/views/home/home.dart';
 import 'package:damasauction/views/homescreen/homescreen.dart';
 
@@ -26,9 +27,9 @@ class AppPages {
         page: () => LandingPage(),
         binding: LandingPageBinging()),
     GetPage(
-        name: "/",
-        page: () => const LanguageSelectionScreenStarter(),
-        middlewares: [MyMiddleWare()]),
+      name: "/",
+      page: () => LandingPage(),
+    ),
     GetPage(
         name: '/languageselectionscreenstarter',
         page: () => const LanguageSelectionScreenStarter()),
@@ -46,6 +47,10 @@ class AppPages {
     GetPage(
         name: '/verificationsignupcodepage',
         page: () => VerificationSignUpCodePage()),
+    GetPage(
+        name: '/verificationresetpasswordcodepage',
+        page: () => VerificationResetPasswordCodePage()),
+    GetPage(name: '/resetpasswordpage', page: () => ResetPasswordPage()),
     // GetPage(name: '/profile', page: () => ProfilePage()),
     // GetPage(name: '/editprofile', page: () => EditInfoPage()),
     // GetPage(name: '/bidding', page: () => BiddingPage()),

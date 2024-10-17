@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 class RegisterController extends GetxController {
   var name = '';
   var password = '';
-  var email = '';
+  var username = '';
   var mobilenom = '';
-  var description = '';
+  var whatsapp = '';
   var confirmpassword = '';
   var loadingsignup = false.obs;
 
@@ -21,14 +21,13 @@ class RegisterController extends GetxController {
 
     // Print user input for debugging
     print("Name: $name");
-    print("Email: $email");
-    print("Mobile Number: $mobilenom");
-    print("Description: $description");
+    print("username: $username");
+    print("whatsapp: $whatsapp");
     print("Password: $password");
     print("Confirm Password: $confirmpassword");
 
-    registerStatus = await service.register(name, email, mobilenom, description,
-        password, confirmpassword); // Call the registration service
+    registerStatus = await service.register(name, username, whatsapp, password,
+        confirmpassword); // Call the registration service
     print("Registration status: $registerStatus");
 
     loadingsignup(false); // Stop loading
@@ -37,11 +36,8 @@ class RegisterController extends GetxController {
     // Check if registration was successful
     if (registerStatus) {
       print("Registration successful, navigating to verification page...");
-      Get.toNamed(AppRoutes.verificationSignUpCodePage, arguments: {
-        "username": email.isNotEmpty
-            ? email
-            : mobilenom // Fallback to mobile number if email is empty
-      });
+      Get.toNamed(AppRoutes.verificationSignUpCodePage,
+          arguments: {"username": username});
     } else {
       // Handle registration failure
       print("Registration failed.");

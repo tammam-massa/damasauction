@@ -53,16 +53,31 @@ class SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: FadeTransition(
-          opacity: _fadeAnimation,
-          child: ScaleTransition(
-            scale: _scaleAnimation,
-            child: Image.asset(
-              'assets/images/logo.jpeg', // Ensure this path is correct
-              width: 150,
-              height: 150,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+                'assets/images/background.png'), // Add your background image here
+            fit: BoxFit.cover, // Make the image cover the whole screen
+          ),
+        ),
+        child: Center(
+          child: FadeTransition(
+            opacity: _fadeAnimation,
+            child: ScaleTransition(
+              scale: _scaleAnimation,
+              child: Container(
+                decoration: const BoxDecoration(
+                  // color: Colors.white, // White background for the content
+                  shape: BoxShape.circle,
+                ),
+                padding: const EdgeInsets.all(0.0), // Adjust padding as needed
+                child: Image.asset(
+                  'assets/images/logo.png', // Ensure this path is correct
+                  width: 150,
+                  height: 150,
+                ),
+              ),
             ),
           ),
         ),

@@ -1,13 +1,12 @@
 import 'package:damasauction/pages/signup/signup_controller.dart';
-import 'package:damasauction/routes/app_routes.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterPage extends StatelessWidget {
   var nameController = TextEditingController();
-  var emailController = TextEditingController();
-  var mobilenomController = TextEditingController();
-  var descriptionController = TextEditingController();
+  var emailOrPhoneController = TextEditingController();
+  var whatsapptionController = TextEditingController();
   var passwordController = TextEditingController();
   var confirmpasswordController = TextEditingController();
 
@@ -70,7 +69,7 @@ class RegisterPage extends StatelessWidget {
 
               // Email Input
               TextFormField(
-                controller: emailController,
+                controller: emailOrPhoneController,
                 decoration: InputDecoration(
                   labelText: 'Email',
                   labelStyle: const TextStyle(color: Colors.grey),
@@ -85,38 +84,33 @@ class RegisterPage extends StatelessWidget {
 
               const SizedBox(height: 30),
 
-              // Mobile No Input
-              TextFormField(
-                controller: mobilenomController,
-                decoration: InputDecoration(
-                  labelText: 'Mobile No',
-                  labelStyle: const TextStyle(color: Colors.grey),
-                  filled: true,
-                  fillColor: const Color(0xfff2f2f2),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide.none,
-                  ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 0.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // WhatsApp Input with Country Code Picker
+                    IntlPhoneField(
+                      controller: whatsapptionController,
+                      decoration: InputDecoration(
+                        labelText: 'WhatsApp',
+                        labelStyle: const TextStyle(color: Colors.grey),
+                        filled: true,
+                        fillColor: const Color(0xfff2f2f2),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                      initialCountryCode: 'SY', // Default country code
+                      onChanged: (phone) {
+                        print(phone
+                            .completeNumber); // Output the full phone number including country code
+                      },
+                    ),
+                  ],
                 ),
               ),
-
-              const SizedBox(height: 30),
-
-              // Address Input
-              TextFormField(
-                controller: descriptionController,
-                decoration: InputDecoration(
-                  labelText: 'Desciption',
-                  labelStyle: const TextStyle(color: Colors.grey),
-                  filled: true,
-                  fillColor: const Color(0xfff2f2f2),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-              ),
-
               const SizedBox(height: 30),
 
               // Password Input
@@ -164,9 +158,8 @@ class RegisterPage extends StatelessWidget {
                     : ElevatedButton(
                         onPressed: () {
                           controller.name = nameController.text;
-                          controller.email = emailController.text;
-                          controller.mobilenom = mobilenomController.text;
-                          controller.description = descriptionController.text;
+                          controller.username = emailOrPhoneController.text;
+                          controller.whatsapp = whatsapptionController.text;
                           controller.password = passwordController.text;
                           controller.confirmpassword =
                               confirmpasswordController.text;
@@ -226,25 +219,7 @@ class RegisterPage extends StatelessWidget {
     );
   }
 
-  // void onClickSignup() async {
-  //   await controller.RegisterOnClick();
-  //   if (controller.registerStatus) {
-  //     Get.toNamed(AppRoutes.verificationSignUpCodePage, arguments: {
-  //       "username": emailController.text.isNotEmpty
-  //           ? emailController.text // Use email if provided
-  //           : mobilenomController.text // Fallback to mobile number
-  //     });
-  //   } else {
-  //     print('error');
-  //   }
-  // }
-
   void onClickSignup() async {
     await controller.RegisterOnClick();
-    //   if (controller.registerStatus) {
-    //     // Get.offNamed('/home');
-    //   } else {
-    //     print('error');
-    //   }
   }
 }

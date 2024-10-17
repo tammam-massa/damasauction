@@ -3,7 +3,7 @@ import 'package:damasauction/models/auth/user_model.dart';
 import 'package:damasauction/services/api_service.dart';
 import 'package:damasauction/services/services.dart';
 import 'package:damasauction/views/auth/successpage.dart';
-import 'package:damasauction/pages/verifycode/verifycode_signup.dart';
+import 'package:damasauction/pages/verifycode_signup/verifycode_signup.dart';
 import 'package:damasauction/views/homescreen/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

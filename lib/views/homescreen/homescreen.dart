@@ -1,10 +1,165 @@
+// import 'package:damasauction/services/services.dart';
+// import 'package:damasauction/views/ads/chooese_ads_category_step1.dart';
+// import 'package:damasauction/views/bidding/biddingpage.dart';
+// import 'package:damasauction/views/home/home.dart';
+// import 'package:damasauction/views/homescreen/cutommenuitem.dart';
+// import 'package:damasauction/views/more/more.dart';
+// import 'package:damasauction/views/profile/profilepage.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+
+// class HomeScreen extends StatefulWidget {
+//   const HomeScreen({super.key});
+
+//   @override
+//   HomePageState createState() => HomePageState();
+// }
+
+// class HomePageState extends State<HomeScreen> {
+//   MyServices myServices = Get.find();
+//   int _selectedIndex = 0;
+//   String? token;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     token = myServices.sharedPreferences.getString("access_token");
+//   }
+
+//   final List<Widget> _pages = [];
+
+//   @override
+//   void didChangeDependencies() {
+//     super.didChangeDependencies();
+//     _pages.addAll([
+//       const HomePage(),
+//       const BiddingPage(),
+//       Container(),
+//       ProfilePage(token: token ?? ''),
+//       MorePage(),
+//     ]);
+//   }
+
+//   void _onItemTapped(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Stack(
+//         children: [
+//           _pages[_selectedIndex],
+//           Positioned(
+//             bottom: 0,
+//             left: 0,
+//             right: 0,
+//             child: Stack(
+//               alignment: Alignment.topCenter,
+//               children: [
+//                 Image.asset(
+//                   'assets/images/box.png',
+//                   fit: BoxFit.fill,
+//                   width: double.infinity,
+//                   height: 106,
+//                 ),
+//                 Image.asset(
+//                   getDarkModeBoxImage(),
+//                   fit: BoxFit.fill,
+//                   width: double.infinity,
+//                   height: 106,
+//                 ),
+//                 Positioned(
+//                   top: 10,
+//                   child: GestureDetector(
+//                     onTap: () {
+//                       Get.to(const ChooseAdsCategoryPage());
+//                     },
+//                     child: Container(
+//                       padding: const EdgeInsets.all(10),
+//                       decoration: BoxDecoration(
+//                         color: getDarkModeBoxConatiner(),
+//                         shape: BoxShape.circle,
+//                       ),
+//                       child: Icon(
+//                         Icons.add,
+//                         color: getDarkModeBoxBasket(),
+//                         size: 30,
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 Positioned(
+//                   bottom: 22,
+//                   left: 0,
+//                   right: 0,
+//                   child: Row(
+//                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                     children: <Widget>[
+//                       Flexible(
+//                         child: CustomMenuItem(
+//                           // Removed isSelected property to remove selected state
+//                           icon: Icons.home,
+//                           onTap: () => _onItemTapped(0),
+//                         ),
+//                       ),
+//                       Flexible(
+//                         child: CustomMenuItem(
+//                           icon: Icons.gavel,
+//                           onTap: () => _onItemTapped(1),
+//                         ),
+//                       ),
+//                       const SizedBox(width: 40), // Space for the center button
+//                       Flexible(
+//                         child: CustomMenuItem(
+//                           icon: Icons.person,
+//                           onTap: () => _onItemTapped(3),
+//                         ),
+//                       ),
+//                       Flexible(
+//                         child: CustomMenuItem(
+//                           icon: Icons.more_horiz,
+//                           onTap: () => _onItemTapped(4),
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+
+//   String getDarkModeBoxImage() {
+//     bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+//     return isDarkMode
+//         ? 'assets/images/boxBlack.png' // Dark mode image path
+//         : 'assets/images/box.png'; // Light mode image path
+//   }
+
+//   Color? getDarkModeBoxConatiner() {
+//     bool isDarkmode = Theme.of(context).brightness == Brightness.dark;
+//     return isDarkmode ? Theme.of(context).primaryColor : Colors.pink;
+//   }
+
+//   Color? getDarkModeBoxBasket() {
+//     bool isDarkmode = Theme.of(context).brightness == Brightness.dark;
+//     return isDarkmode ? Colors.white : Colors.white;
+//   }
+// }
+
 import 'package:damasauction/services/services.dart';
 import 'package:damasauction/views/ads/chooese_ads_category_step1.dart';
 import 'package:damasauction/views/bidding/biddingpage.dart';
 import 'package:damasauction/views/home/home.dart';
+import 'package:damasauction/views/homescreen/cutommenuitem.dart';
 import 'package:damasauction/views/more/more.dart';
 import 'package:damasauction/views/profile/profilepage.dart';
-import 'package:damasauction/widgets/home/nav_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,28 +178,23 @@ class HomePageState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Retrieve token from shared preferences
     token = myServices.sharedPreferences.getString("access_token");
   }
 
-  // List of pages to display
   final List<Widget> _pages = [];
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-
-    // Initialize _pages after token is retrieved
     _pages.addAll([
       const HomePage(),
       const BiddingPage(),
-      Container(), // Placeholder for the floating action button
-      ProfilePage(token: token ?? ''), // Pass the token to ProfilePage
+      Container(),
+      ProfilePage(token: token ?? ''),
       MorePage(),
     ]);
   }
 
-  // Navigation handler
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -56,114 +206,111 @@ class HomePageState extends State<HomeScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          _pages[_selectedIndex], // Show the selected page
+          _pages[_selectedIndex],
           Positioned(
-            bottom:
-                10.0, // Adjust this value to position the button above the bottom container
-            right: 16.0, // Distance from the right edge of the screen
-            child: Container(
-              width: 60, // Adjust width as needed
-              height: 80, // Adjust height as needed
-              decoration: BoxDecoration(
-                color: const Color(0xff358cde), // Background color
-                borderRadius: BorderRadius.circular(12.0), // Rounded corners
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    blurRadius: 4.0,
-                    offset: const Offset(0, 2), // Shadow position
-                  ),
-                ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.help,
-                    color: Colors.white,
-                    size: 24.0, // Adjust size as needed
-                  ),
-                  const SizedBox(height: 8), // Space between icon and text
-                  Text(
-                    'help'.tr,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.0, // Adjust font size as needed
-                      fontWeight: FontWeight.bold,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Image.asset(
+                  'assets/images/box.png',
+                  fit: BoxFit.fill,
+                  width: double.infinity,
+                  height: 111,
+                ),
+                Image.asset(
+                  getDarkModeBoxImage(),
+                  fit: BoxFit.fill,
+                  width: double.infinity,
+                  height: 106,
+                ),
+                Positioned(
+                  bottom: 50,
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(const ChooseAdsCategoryPage());
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: getDarkModeBoxConatiner(),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.add,
+                        color: getDarkModeBoxBasket(),
+                        size: 30,
+                      ),
                     ),
                   ),
-                ],
-              ),
+                ),
+                Positioned(
+                  bottom: 22,
+                  left: 0,
+                  right: 0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Flexible(
+                        child: CustomMenuItem(
+                          isSelected: _selectedIndex == 0,
+                          icon: Icons.home_outlined,
+                          title: 'Home', // Add title
+                          onTap: () => _onItemTapped(0),
+                        ),
+                      ),
+                      Flexible(
+                        child: CustomMenuItem(
+                          isSelected: _selectedIndex == 1,
+                          icon: Icons.gavel_outlined,
+                          title: 'Bidding', // Add title
+                          onTap: () => _onItemTapped(1),
+                        ),
+                      ),
+                      const SizedBox(width: 40), // Space for the center button
+                      Flexible(
+                        child: CustomMenuItem(
+                          isSelected: _selectedIndex == 3,
+                          icon: Icons.person_outline,
+                          title: 'My ads', // Add title
+                          onTap: () => _onItemTapped(3),
+                        ),
+                      ),
+                      Flexible(
+                        child: CustomMenuItem(
+                          isSelected: _selectedIndex == 4,
+                          icon: Icons.more_horiz_outlined,
+                          title: 'More', // Add title
+                          onTap: () => _onItemTapped(4),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white, // Set the BottomAppBar background to white
-        elevation: 0, // Remove shadow or elevation if any
-        child: SizedBox(
-          height: 40.0, // Adjust the height as needed
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Expanded(
-                child: NavIcon(
-                  icon: Icons.home,
-                  label: 'home'.tr,
-                  index: 0,
-                  selectedIndex: _selectedIndex,
-                  onTap: _onItemTapped,
-                ),
-              ),
-              Expanded(
-                child: NavIcon(
-                  icon: Icons.gavel,
-                  label: 'bidding'.tr,
-                  index: 1,
-                  selectedIndex: _selectedIndex,
-                  onTap: _onItemTapped,
-                ),
-              ),
-              const SizedBox(
-                width: 40.0, // Space for the centered floating action button
-              ),
-              Expanded(
-                child: NavIcon(
-                  icon: Icons.person,
-                  label: 'my ads'.tr,
-                  index: 3,
-                  selectedIndex: _selectedIndex,
-                  onTap: _onItemTapped,
-                ),
-              ),
-              Expanded(
-                child: NavIcon(
-                  icon: Icons.more_horiz,
-                  label: 'more'.tr,
-                  index: 4,
-                  selectedIndex: _selectedIndex,
-                  onTap: _onItemTapped,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xff358cde), // Background color
-        shape: const CircleBorder(), // Ensure circular shape
-        child: const Icon(
-          Icons.add,
-          color: Colors.white, // White add icon
-          size: 36.0, // Adjusted size to make it prominent
-        ),
-        onPressed: () {
-          // Action for the center button (+)
-          Get.to(const ChooseAdsCategoryPage());
-        },
-      ),
     );
+  }
+
+  String getDarkModeBoxImage() {
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return isDarkMode
+        ? 'assets/images/boxBlack.png' // Dark mode image path
+        : 'assets/images/box.png'; // Light mode image path
+  }
+
+  Color? getDarkModeBoxConatiner() {
+    bool isDarkmode = Theme.of(context).brightness == Brightness.dark;
+    return isDarkmode ? Theme.of(context).primaryColor : Colors.pink;
+  }
+
+  Color? getDarkModeBoxBasket() {
+    bool isDarkmode = Theme.of(context).brightness == Brightness.dark;
+    return isDarkmode ? Colors.white : Colors.white;
   }
 }

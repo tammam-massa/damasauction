@@ -8,4 +8,7 @@ class AppRoutes {
   static const createItemForm = '/createitemform';
   static const successSignupPage = '/successSignuppage';
   static const verificationSignUpCodePage = '/verificationsignupcodepage';
+  static const verificationResetPasswordCodePage =
+      '/verificationresetpasswordcodepage';
+  static const resetPasswordPage = '/resetpasswordpage';
 }

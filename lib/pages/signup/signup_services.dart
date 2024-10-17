@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:damasauction/Utiles.dart';
 import 'package:http/http.dart' as http;
@@ -9,20 +8,21 @@ class RegisterService {
 
   var url = Uri.parse('https://api.mazaddimashq.com/api/auth/register');
 
-  Future<bool> register(String name, String email, String mobilenom,
-      String description, String password, String confirmpassword) async {
+  Future<bool> register(String name, String username, String whatsapp,
+      String password, String confirmpassword) async {
     // async and await for making any comand after wait till this ends
 
     print(name);
     print(password);
-    print(email);
-    print(mobilenom);
-    print(description);
+    print(username);
+
+    print(whatsapp);
     print(confirmpassword);
 
     var response = await http.post(url, body: {
       'name': name,
-      'username': email,
+      'username': username,
+      'whatsapp': whatsapp,
       'password': password,
       'password_confirmation': confirmpassword,
     });
