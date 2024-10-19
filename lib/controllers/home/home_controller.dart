@@ -1,5 +1,5 @@
 // Home Controller
-import 'package:damasauction/services/services.dart';
+import 'package:damasauction/core/services.dart';
 import 'package:get/get.dart';
 
 class HomeControllerImp extends GetxController {

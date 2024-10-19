@@ -1,7 +1,7 @@
 //previous is ok
 
 import 'package:damasauction/controllers/category/category_controller.dart';
-import 'package:damasauction/services/get_category_name_by_id.dart';
+import 'package:damasauction/services/getgategorynamebyid_sevice.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

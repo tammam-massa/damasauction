@@ -1,6 +1,6 @@
 // category_controller.dart
 import 'package:damasauction/models/category/category_model.dart';
-import 'package:damasauction/services/api_response.dart';
+import 'package:damasauction/services/fetchCategory_service.dart';
 import 'package:get/get.dart';
 
 class CategoryController extends GetxController {

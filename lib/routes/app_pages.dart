@@ -1,12 +1,10 @@
-import 'package:damasauction/bindings/landing_bindings.dart';
-import 'package:damasauction/bindings/signup_binding.dart';
-import 'package:damasauction/pages/forgetpassword/verifycode_resetpassword.dart';
-import 'package:damasauction/pages/landing/landing_page.dart';
-import 'package:damasauction/pages/login/login_page.dart';
-import 'package:damasauction/pages/resetpassword/resetpassword.dart';
-import 'package:damasauction/pages/signup/signup_page.dart';
-import 'package:damasauction/pages/verifycode_signup/success_Signup.dart';
-import 'package:damasauction/pages/verifycode_signup/verifycode_signup.dart';
+import 'package:damasauction/views/forgetpassword/verifycode_resetpassword.dart';
+import 'package:damasauction/views/landing/landing_page.dart';
+import 'package:damasauction/views/auth/login_page.dart';
+import 'package:damasauction/views/resetpassword/resetpassword.dart';
+import 'package:damasauction/views/auth/signup_page.dart';
+import 'package:damasauction/views/verifycode_signup/success_Signup.dart';
+import 'package:damasauction/views/verifycode_signup/verifycode_signup.dart';
 import 'package:damasauction/views/home/home.dart';
 import 'package:damasauction/views/homescreen/homescreen.dart';
 
@@ -18,14 +16,14 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 class AppPages {
   static final pages = [
     GetPage(
-        name: '/register',
-        page: () => RegisterPage(),
-        binding: RegisterPageBinging()),
+      name: '/register',
+      page: () => RegisterPage(),
+    ),
     //   GetPage(name: '/splash' ,page: ()=> HomePage() , binding: HomePageBinding() ),
     GetPage(
-        name: '/landing',
-        page: () => LandingPage(),
-        binding: LandingPageBinging()),
+      name: '/landing',
+      page: () => LandingPage(),
+    ),
     GetPage(
       name: "/",
       page: () => LandingPage(),

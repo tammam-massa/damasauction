@@ -1,6 +1,6 @@
 // controllers/profile_controller.dart
 import 'package:damasauction/models/profile/profile_model.dart';
-import 'package:damasauction/services/api_profile.dart';
+import 'package:damasauction/services/profile_services.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
